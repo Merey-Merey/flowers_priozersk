@@ -87,3 +87,24 @@ document.querySelectorAll('.video-container video').forEach(video => {
     video.addEventListener('mouseenter', () => video.play());
     video.addEventListener('mouseleave', () => video.pause());
 });
+
+
+
+
+let selectedProduct = "";
+        let selectedPrice = "";
+        function showModal(element) {
+            selectedProduct = element.parentElement.querySelector('.product-name').innerText;
+            selectedPrice = element.parentElement.querySelector('.product-price').innerText;
+            document.getElementById('cart-modal').style.display = 'block';
+        }
+        function hideModal() {
+            document.getElementById('cart-modal').style.display = 'none';
+        }
+        document.getElementById('whatsapp-button').addEventListener('click', function() {
+            let phoneNumber = "77054515807"; 
+            let message = `Здравствуйте! Меня заинтересовал ваш прекрасный букет" ${selectedProduct} " ,по цене: "${selectedPrice}". Я хотела бы узнать о его наличии и условиях доставки. Буду благодарна за подробную информацию. Спасибо!`;
+            let encodedMessage = encodeURIComponent(message);
+            let whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.location.href = whatsappUrl;
+        });
