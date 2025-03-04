@@ -41,7 +41,7 @@ a:link{
 ul.menu{
     list-style-type: none;
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 li{
     list-style: none;    
